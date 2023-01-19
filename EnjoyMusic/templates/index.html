@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+    {% load static %}
+	<title>Enjoy Music</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static '/images/logo.png' %}" />
+ 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static '/css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+
+  </head>
+
+  <body>
+  	<div id="btns">
+  		Pitch +<input type="number" style="width: 50px" placeholder="Change pitch" id="pitch-value" onchange="Switch();" name="pitch-value" value="0">
+
+		<select id="instruments" onchange="selectInstruments(this)"></select>
+		<button id="record">record notes</button>
+	  	<button id="stop">stop record</button>
+	  	<button id="playr">play recorded</button>
+	  	<button id="save">save</button>
+	  	<select id="autoplay">
+	  		<option value="birthday">birthday song</option>
+	  	</select>
+	  	<button class="sound-clips"><i class="fa fa-play"></i></button>
+	  	<button id="sound-off"><i class="fa fa-volume-off"></i></button>
+	  	<!-- <button id="sound-stop"><i class="fa fa-stop"></i></button> -->
+
+	</div>
+	<hr>
+	<div id="falling-notes-block">
+		
+		<div id="falling-notes" style="width: 600px; height: 350px; background: rgba(0, 0, 0, 1);">
+			
+		</div>
+	</div>
+  	<section id="p-keys">
+  		{% csrf_token %}
+	</section>
+	<div>
+		<a href=""><div></div></a>
+	</div>
+	<div id="flame"></div>
+	<hr>
+	<div id="bottom-div"></div>
+
+	<footer>
+	<script src="https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js"></script> 
+    </footer>
+    <script src="{% static '/js/flame.js' %}"></script>
+    <script src="{% static '/js/script.js' %}"></script>
+  </body>
+</html>
+
